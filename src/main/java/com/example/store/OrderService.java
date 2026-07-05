@@ -1,5 +1,6 @@
 package com.example.store;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,11 @@ public class OrderService {
         // public OrderService(@Qualifier("paypal")PaymentService paymentService)
 
         this.paymentService = paymentService;
+    }
+
+    @PostConstruct// run this method auto. when OrderService Bean is created and injected
+    public void init(){
+        System.out.println("Order Service PostConstruct");
     }
 
     // DI-setter injection, NOT recommended,

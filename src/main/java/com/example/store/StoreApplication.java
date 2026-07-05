@@ -3,6 +3,7 @@ package com.example.store;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.annotation.Order;
 
 @SpringBootApplication
@@ -10,9 +11,16 @@ public class StoreApplication {
 
 	public static void main(String[] args) {
 //		SpringApplication.run(StoreApplication.class, args);
+
+//		ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+//		OrderService orderService = context.getBean(OrderService.class);
+//		orderService.placeOrder();
+//		context.close();
+
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-		OrderService orderService = context.getBean(OrderService.class);
-		orderService.placeOrder();
+		var userService = context.getBean(UserService.class);
+		userService.registerUser(new User(1L, "dex@gmail.com","123123","Dex"));
+		userService.registerUser(new User(1L, "dex@gmail.com","123123","Dex"));
 	}
 
 }
