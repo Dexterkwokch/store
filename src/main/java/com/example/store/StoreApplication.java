@@ -1,5 +1,6 @@
 package com.example.store;
 
+import com.example.store.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,11 +18,17 @@ public class StoreApplication {
 //		orderService.placeOrder();
 //		context.close();
 
-		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+//		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 //		var userService = context.getBean(UserService.class);
 //		userService.registerUser(new User(1L, "dex@gmail.com","123123","Dex"));
 
-
+		// var user  = new User(1L, "user", "email", "password");
+		User user = User.builder()
+				.id(1L)
+				.name("dex")
+				.email("dex@gmail.com")
+				.password("123")
+				.build();
 
 
 	}
