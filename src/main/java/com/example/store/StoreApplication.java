@@ -1,5 +1,6 @@
 package com.example.store;
 
+import com.example.store.entities.Address;
 import com.example.store.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,6 +31,16 @@ public class StoreApplication {
 				.password("123")
 				.build();
 
+		var address = Address.builder()
+				.id(1L)
+				.street("street")
+				.zip("zip")
+				.city("city")
+				.state("state")
+				.build();
+
+		user.addAddress(address);
+		System.out.println(user);
 
 	}
 

@@ -1,11 +1,13 @@
 package com.example.store.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "addresses")
 public class Address {
@@ -26,4 +28,9 @@ public class Address {
 
     @Column(name = "state", nullable = false)
     private String state;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @ToString.Exclude
+    private User user;
 }
